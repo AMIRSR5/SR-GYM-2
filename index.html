@@ -869,7 +869,8 @@
     { id:"seed-1", name:"امیرحسین سرافراز", phone:"09037241969", photo: null },
     { id:"seed-2", name:"حسین شفیعی", phone:"+98 902 640 8548", photo: null },
     { id:"seed-3", name:"هانی شفیعی", phone:"0905 721 9848", photo: null },
-    { id:"seed-4", name:"امیر رحیمی ( برفی خودمون )", phone:"0905 721 9848", photo: null }
+    { id:"seed-4", name:"امیر رحیمی ( برفی خودمون )", phone:"0933 121 0473", photo: null },
+    { id:"seed-5", name:"متین زواری", phone:"09366706502", photo: null }
   ];
 
   var LS = {
@@ -907,7 +908,13 @@
     var changed = false;
     athletes.forEach(function(a){
       if(a.id === "seed-1" && a.photo){ a.photo = null; changed = true; }
+      if(a.id === "seed-4" && a.phone === "0905 721 9848"){ a.phone = "0933 121 0473"; changed = true; }
     });
+    var hasSeed5 = athletes.some(function(a){ return a.id === "seed-5"; });
+    if(!hasSeed5){
+      athletes.push({ id:"seed-5", name:"متین زواری", phone:"09366706502", photo: null });
+      changed = true;
+    }
     if(changed) saveJSON(LS.athletes, athletes);
   })();
 
